@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frends - App</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#f0f2f5;padding-bottom:70px}
+.top{background:#1877f2;color:white;padding:14px;text-align:center;font-size:22px;font-weight:bold;position:fixed;top:0;left:0;right:0;z-index:10}
+.top span{color:#ffeb3b}
+.frame-wrap{margin-top:56px;height:calc(100vh - 126px)}
+iframe{width:100%;height:100%;border:none;background:white}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:white;display:flex;justify-content:space-around;border-top:1px solid #ddd;padding:8px 0;z-index:10}
+.bottom button{border:none;background:none;font-size:12px;color:#65676b;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.bottom button.active{color:#1877f2;font-weight:bold}
+.bottom button i{font-size:22px;font-style:normal}
+</style>
+</head>
+<body>
+<div class="top">F<span>rends</span></div>
+<div class="frame-wrap">
+<iframe id="mainFrame" src="home.html"></iframe>
+</div>
+<div class="bottom">
+<button onclick="openPage('home.html',this)" class="active"><i>🏠</i>হোম</button>
+<button onclick="openPage('video.html',this)"><i>🎬</i>ভিডিও</button>
+<button onclick="openPage('reels.html',this)"><i>🎞️</i>রিলস</button>
+<button onclick="openPage('photo.html',this)"><i>🖼️</i>ফটো</button>
+<button onclick="openPage('sms.html',this)"><i>💬</i>SMS</button>
+<button onclick="openPage('call.html',this)"><i>📞</i>কল</button>
+</div>
+<script>
+function openPage(page,btn){
+document.getElementById('mainFrame').src=page;
+document.querySelectorAll('.bottom button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+</script>
+</body>
+</html>
